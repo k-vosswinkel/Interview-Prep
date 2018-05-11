@@ -49,3 +49,9 @@ substringCheck(['c', 'a', 't'], 'The crazy talented cast') // returns 'cast'
 
 
 
+//The other way we could approach is using sliding window
+  //move left until you hit three unique (check for unique before adding)
+  //move right until you fall under 3
+  //move right again until you hit three
+  //left until you fall under
+  //keep track of your 3 collections until end
