@@ -9,12 +9,43 @@
 
 // set your window to smallest poss. combo. Ratchet and check; if no poss. combo, expand window and continue
 let substringCheck = (arr, str) => {
+  let head = 0;
+  let possibleSolutions = []
 
+  // make dictionary
+  let keyCount = {}
+
+  for (let i = 0; i < arr.length; i++) {
+    keyCount[arr[i]] = 0;
+  }
+
+  // let innerFunc = () => {
+  // initialize the while loop with the smallest window possible (the length of the arr)
+  for (let tail = arr.length; tail <= str.length; tail++) {
+    // move through the string, one letter at a time
+    let tempstring = '';
+    for (let n = head; n < tail; n++) {
+      //checking for matches at each point
+      tempstring += str[n]
+      if (arr.indexOf(str[n]) !== -1) keyCount[str[n]] += 1
+      console.log("keyCount:", keyCount)
+    }
+    head++;
+
+    let keyValues = Object.values(keyCount)
+    let keys = Object.keys(keyCount)
+
+    if (keyValues.indexOf(0) === -1) possibleSolutions.push(tempstring)
+    console.log(tempstring)
+  }
+
+  return possibleSolutions
 }
 
-substringCheck(['x', 'y', 'z'], 'xxyxxzy') // returns 'xzy'
+// substringCheck(['x', 'y', 'z'], 'xxyxxzy') // returns 'xzy'
 substringCheck(['c', 'a', 't'], 'The crazy talented cast') // returns 'cast'
-substringCheck(['b', 'o', 'n'], 'I love bon bons even when they are burned on the bottom') // returns 'bon'
-substringCheck(['a', 'b', 'l', 'e'], 'Once upon a time') // returns ''
+// substringCheck(['b', 'o', 'n'], 'I love bon bons even when they are burned on the bottom') // returns 'bon'
+// substringCheck(['a', 'b', 'l', 'e'], 'Once upon a time') // returns ''
+
 
 
