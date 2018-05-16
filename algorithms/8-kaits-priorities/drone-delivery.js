@@ -7,10 +7,25 @@
 // Explain your solution and analyze its time and space complexities.
 
 let calcDroneMinEnergy = (arr) => {
-  let firstHeight = arr[0][2]
-  let sortedByHeight = arr.sort((a, b) => {
-    return a[2] - b[2]
+  //grab your starting location
+  let firstHeight = arr[0][2];
+
+  //remove starting location and sort by height
+  let sortedByHeight = arr.slice(1).sort((a, b) => {
+    return b[2] - a[2]
   })
+
+  //calculate the amount of energy needed to climb to the highest point
+  let altitudeGain = sortedByHeight[0][2] - firstHeight;
+
+  //calculate altitudeLoss
+  let altitudeLoss = 0;
+  for (let i = 1; i < sortedByHeight.length; i++) {
+    altitudeLoss += sortedByHeight[i][2]
+  }
+
+  //return the minimum amount of energy needed
+  return `${altitudeGain - altitudeLoss} kWh`;
 }
 
 // input: route = [[0, 2, 10],
