@@ -7,7 +7,10 @@
 // Explain your solution and analyze its time and space complexities.
 
 let calcDroneMinEnergy = (arr) => {
-
+  let firstHeight = arr[0][2]
+  let sortedByHeight = arr.sort((a, b) => {
+    return a[2] - b[2]
+  })
 }
 
 // input: route = [[0, 2, 10],
