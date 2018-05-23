@@ -8,19 +8,19 @@ function binarySearch(array, value, start, end) {
   	var midIndex = Math.floor((start + end) / 2);
   	var midValue = array[midIndex];
 
-  	if (midValue > value) { 
-  		return binarySearch(array, value, start, midIndex-1); 
+  	if (midValue > value) {
+  		return binarySearch(array, value, start, midIndex-1);
   	};
 
-  	if (midValue < value) { 
-  		return binarySearch(array, value, midIndex+1, end); 
+  	if (midValue < value) {
+  		return binarySearch(array, value, midIndex+1, end);
   	};
 
   	// If value is equal to the middle value
   	return midIndex;
 }
 
-// Iterative Solution - set start and end to - and array.length - 1
+// Iterative Solution - set start to 0 and end to array.length - 1
 function binarySearch(array, value, start, end){
 
 	while (start <= end){
