@@ -27,14 +27,33 @@ function BinarySearchTree() {
   this.root = null;
 }
 
-BinarySearchTree.prototype.findLargestSmallerKey = function (num, node = this.root, currentKey = -1) {
-  if (node.key < num && ) {
-    this.findLargestSmallerKey()
-  } else
+// Iterative Solution
+// BinarySearchTree.prototype.findLargestSmallerKey = function (num) {
+//   let currentNode = this.root;
+//   let currentHighest = -1
 
+//   while (currentNode) {
+//     if (currentNode.key < num) {
+//       currentHighest = currentNode.key;
+//       currentNode = currentNode.right
+//     } else if (currentNode.key >= num) {
+//       currentNode = currentNode.left
+//     }
+//   }
+//   return currentHighest
+// }
 
-    if (node.key >= num &&)
+// Recursive Solution
+BinarySearchTree.prototype.findLargestSmallerKey = function (num, currentNode = this.root, currentHighest = -1) {
+  if (currentNode) {
+    if (currentNode.key < num) {
+      return this.findLargestSmallerKey(num, currentNode.right, currentNode.key)
+    } else if (currentNode.key >= num) {
+      return this.findLargestSmallerKey(num, currentNode.left, currentHighest)
+    }
+  } else return currentHighest
 }
+
 
 // Creates a new node by a key and inserts it to the BST
 BinarySearchTree.prototype.insert = function (key) {
