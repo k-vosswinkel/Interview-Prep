@@ -45,7 +45,14 @@ You will need:
 
 
 ## A Note on Optimization
-  * If you're asked to calculate *every* possible permutation of something, chances are, you're going to be stuck with O(n!) or O factorial. That's because for `n` possible characters, there are `n!` permutations.
+  * Can I use an object?
+  * Can I use pointers?
+  * Can I organize the data in a more manageable way before performing the core operation?
+
+  * It might be difficult to optimize:
+    * If you're asked to calculate *every* possible permutation of something, chances are, you're going to be stuck with O(n!) or O factorial. That's because for `n` possible characters, there are `n!` permutations.
+
+    * If you're asked to optimize in a situation where you have to touch *every* point in an array or object, it is unlikely that you can optimize. Optimization is oftentimes (not always) about avoiding hitting every piece of data if you can.
 
 
 
