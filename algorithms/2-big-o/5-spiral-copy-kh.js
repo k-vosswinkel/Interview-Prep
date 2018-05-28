@@ -17,7 +17,7 @@
 // 13, 12]
 
 
-//ITERATIVE
+//ITERATIVE SOLUTION
 function spiralCopy(inputMatrix) {
   //set up variables to hold our new array and to keep track of
   //the current top and bottom rows
@@ -74,4 +74,53 @@ function spiralCopy(inputMatrix) {
   return newArray
 }
 
-//RECURSIVE
+//RECURSIVE SOLUTION
+function spiralCopy(inputMatrix, newArray = []) {
+  if (inputMatrix.length > 2) {
+    //grab top row elements
+    for (let i = 0; i <= inputMatrix[0].length - 1; i++) {
+      newArray.push(inputMatrix[0][i])
+    }
+
+    //grab last elements from all middle rows
+    for (let x = 1; x < inputMatrix.length - 1; x++) {
+      let lastElemInRow = inputMatrix[x][inputMatrix[0].length - 1];
+      newArray.push(lastElemInRow)
+    }
+
+    //grab bottom row elements
+    for (let n = inputMatrix[0].length - 1; n >= 0; n--) {
+      newArray.push(inputMatrix[inputMatrix.length - 1][n])
+    }
+
+    //grab first elements from all middle rows
+    for (let y = inputMatrix.length - 2; y > 0; y--) {
+      newArray.push(inputMatrix[y][0])
+    }
+
+    //slice and recurse
+    //remove top and bottom rows
+    let smallerMatrix = inputMatrix.slice(1, inputMatrix.length - 1)
+
+    //remove first and last elements from all remaining rows
+    let trimmedRows = smallerMatrix.map(row => {
+      return row.slice(1, row.length - 1)
+    })
+
+    spiralCopy(trimmedRows, newArray)
+  } else {
+    //add last top row
+    for (let i = 0; i < inputMatrix[0].length; i++) {
+      newArray.push(inputMatrix[0][i])
+    }
+
+    //if there is a bottom row left, add it
+    if (inputMatrix.length > 1) {
+      for (let n = inputMatrix[0].length - 1; n >= 0; n--) {
+        newArray.push(inputMatrix[inputMatrix.length - 1][n])
+      }
+    }
+  }
+
+  return newArray
+}
