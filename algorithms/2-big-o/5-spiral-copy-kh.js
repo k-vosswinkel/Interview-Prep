@@ -124,3 +124,36 @@ function spiralCopy(inputMatrix, newArray = []) {
 
   return newArray
 }
+
+// inputMatrix =
+// [[1, 2, 3, 4, 5],
+// [6, 7, 8, 9, 10],
+// [11, 12, 13, 14, 15],
+// [16, 17, 18, 19, 20]]
+
+// output:
+// [1, 2, 3, 4, 5,
+// 10, 15, 20, 19,
+// 18, 17, 16, 11,
+// 6, 7, 8, 9, 14,
+// 13, 12]
+
+//CALL STACK:
+
+////// 3:
+// Matrix [[7, 8, 9], [12, 13, 14]]
+// Array: [1, 2, 3, 4, 5, 10, 15, 20, 19, 18, 17, 16, 7, 8, 9, 14, 13, 12]
+
+//RETURN => Array;
+
+////// 2:
+// Matrix [[7, 8, 9], [12, 13, 14]]
+// Array: [1, 2, 3, 4, 5, 10, 15, 20, 19, 18, 17, 16]
+
+// Once 3 is resolved, 2 gets an empty array and returns newArray from 3
+
+////// 1:
+// Matrix [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]]
+// Array: []
+
+// Once 2 is resolved, 1 gets an empty array and returns newArray from 2
