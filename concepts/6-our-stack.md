@@ -15,6 +15,8 @@
 4. Why would I use this instead of another, similar library?
 
 #### Node.js
+for reference: https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
+https://nodejs.org/en/about/
 1. What is this library?
 2. What does this library do (i.e. how does it interact with other parts of the app)?
 3. What are some alternatives to this library?
