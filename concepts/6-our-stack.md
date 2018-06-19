@@ -1,9 +1,17 @@
 # Going Through Our Stack
 ## Back-End
 #### JavaScript
-1. What is this library?
-2. What does this library do (i.e. how does it interact with other parts of the app)?
-3. What are some alternatives to this library?
+1. What is this? It's an multi-paradigm language:
+  - Object oriented programming
+  - Functional programming
+  - Imperative programming
+  - Declarative programming
+3. What are some alternatives to this language?
+  - Python
+  - Ruby
+  - Java
+  - C++
+  - Etc...
 4. Why would I use this instead of another, similar library?
 
 #### Node.js
