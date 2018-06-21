@@ -18,6 +18,8 @@
   - It's flexible and easy to develop with because you don't have to switch between languages as you move from front to back end.
 
 #### Node.js
+for reference: https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
+https://nodejs.org/en/about/
 1. What is this library?
   - It is an asynchronous, event-driven, JavaScript runtime/server environment.
   - It is a cross-platform JavaScript runtime environment.
