@@ -1,7 +1,7 @@
 # Going Through Our Stack
 ## Back-End
 #### JavaScript
-1. What is this?
+1. What is it?
   It's an multi-paradigm language that is used for:
   - Object oriented programming
   - Functional programming
