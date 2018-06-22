@@ -1,4 +1,6 @@
 // Selection sort moves through an ever-shorter array to find the smallest number and move it to the appropriate index
+
+// It's time complexity is O(n * log(n)) where n is the length of the array, since we're looping through a progressively smaller and smaller subset of the array each time.
 let swap = (arr, currIdx, smallestIdx) => {
   let placeholder = arr[currIdx]
   arr[currIdx] = arr[smallestIdx]
