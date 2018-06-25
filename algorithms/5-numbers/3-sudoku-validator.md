@@ -66,20 +66,32 @@ function validSolution(solution){
   function check(arr){
     return arr.sort()
     .filter(function(val, index){
-      return val===index+1;
+      return val === index + 1;
     })
-    .length===9;
+    .length === 9;
   }
 
-  for(let i=0;i<9;i++){
-    var col=[ ];
-    var row=[ ];
-    var square=[ ];
-    for(var j=0;j<9;j++){
+  for (let i = 0; i < 9; i++){
+    var col = [ ];
+    var row = [ ];
+    var square = [ ];
+    for(var j = 0; j < 9; j++){
       col.push(solution[j][i]);
       row.push(solution[i][j]);
-      square.push(solution[Math.floor(j/3)+(i%3)*3][j%3+Math.floor(i/3)*3]);
+      square.push(solution[Math.floor(j / 3) + (i % 3) * 3][j % 3 + Math.floor(i / 3) * 3]);
     }
+
+    // For the square => Math.floor(0 / 3) + (0 % 3) * 3 => Math.floor(0) + 0 * 3 => 0
+    //                => (0 % 3) + Math.floor(0 / 3) * 3 => 0 + Math.floor(0) * 3 => 0
+
+    // For the square => Math.floor(1 / 3) + (0 % 3) * 3 => Math.floor(0) + 0 * 3 => 0
+    //                => (1 % 3) + Math.floor(0 / 3) * 3 => 1 + Math.floor(0) * 3 => 3
+
+    // For the square => Math.floor(2 / 3) + (0 % 3) * 3 => Math.floor(0) + 0 * 3 => 0
+    //                => (2 % 3) + Math.floor(0 / 3) * 3 => 2 + Math.floor(0) * 3 => 6
+
+    // For the square => Math.floor(2 / 3) + (0 % 3) * 3 => Math.floor(0) + 0 * 3 => 0
+    //                => (2 % 3) + Math.floor(0 / 3) * 3 => 2 + Math.floor(0) * 3 => 6
 
     if(!check(col) || !check(row) || !check(square)) return false;
   }
