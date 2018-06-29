@@ -8,19 +8,36 @@
 // 1 3 5 <= round 3: player 5 (remove player 1)
 // 3 5 <= round 4: player 3 (remove player 5)
 // Player 3 is the winner!
-debugger
+
 // Brute Force Solution:
 let eenyMeeny = (num) => {
   // build our array for storage
   let players = []
-  for (let i = 1; i <= num; i++){
+  for (let i = 1; i <= num; i++) {
     players.push(i)
   }
-  debugger
-  let currentPlayer = 1
-    while (players.length > 1){
-      players = players.splice(currentPlayer, 1)
-      currentPlayer++
+
+  // cycle through the array, removing and indexing the player as you go
+  let currentPlayer = 0
+  while (players.length > 1) {
+    // if, given the current array, you're on the last player,
+    // shift the first player off the array and loop around,
+    // setting the current player to 0
+    if (currentPlayer === players.length - 1) {
+      players.shift()
+      currentPlayer = 0
+    } else {
+    // otherwise remove the next player
+      players.splice(currentPlayer + 1, 1)
+      // if you were on the second-to-last player (and after splicing, you're now at the last player), reset the player to 0
+      if (currentPlayer === players.length - 1) {
+        currentPlayer = 0
+      } else { // else increment the player up by 1
+        currentPlayer++
+      }
     }
+  }
   return players[0]
 }
+
+// Linked List Solution
