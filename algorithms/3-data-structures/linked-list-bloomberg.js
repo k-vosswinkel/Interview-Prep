@@ -41,3 +41,72 @@ let eenyMeeny = (num) => {
 }
 
 // Linked List Solution
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  // Add a new node at the head of the linked list
+  insertNode(val) {
+    let newNode = new Node(val);
+    newNode.next = this.head;
+    this.head = newNode;
+  }
+
+  // Remove a given node from the linked list
+  removeNode(node) {
+    let next = node.next.next
+    node.next = next
+    return node.next
+  }
+
+  // Print our entire linked list (debugging)
+  printList() {
+    let currentNode = this.head
+    while (currentNode) {
+      console.log(currentNode)
+      currentNode = currentNode.next
+    }
+  }
+}
+
+// Node constructor
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+let eenyMeeny = (num) => {
+  // Build our linked list, with our first player at the head
+  let ourLinkedList = new LinkedList()
+  for (let i = num; i > 0; i--) {
+    ourLinkedList.insertNode(i)
+  }
+
+  // Starting at the head of our linked list, move through removing every
+  // other player
+  let playRound = (currentNode = ourLinkedList.head) => {
+    // This while loop will break if currentNode is null, so check for it!
+    // If currentNode and currentNode.next exist, remove a node
+    while (currentNode && currentNode.next) {
+      currentNode = ourLinkedList.removeNode(currentNode)
+    }
+    // if our last player in the round is the last node in the linked list,
+    // remove the head of the linked list
+    // and start the next round with player 2
+    if (currentNode) ourLinkedList.head = ourLinkedList.head.next
+  }
+
+  while (ourLinkedList.head.next) {
+    playRound()
+  }
+  return ourLinkedList.head.val
+
+}
+
+// eenyMeeny(5) // Should return 3
+// eenyMeeny(6) // Should return 5
+// eenyMeeny(10) // Should return 5
+eenyMeeny(1) // Should return 1
