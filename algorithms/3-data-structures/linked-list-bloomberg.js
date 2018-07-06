@@ -9,6 +9,7 @@
 // 3 5 <= round 4: player 3 (remove player 5)
 // Player 3 is the winner!
 
+/////////////////////////
 // Brute Force Solution:
 let eenyMeeny = (num) => {
   // build our array for storage
@@ -40,6 +41,7 @@ let eenyMeeny = (num) => {
   return players[0]
 }
 
+/////////////////////////
 // Linked List Solution
 class LinkedList {
   constructor() {
@@ -104,6 +106,35 @@ let eenyMeeny = (num) => {
   }
   return ourLinkedList.head.val
 
+}
+
+/////////////////////////
+// ES6 Map Solution
+let eenyMeeny = (num) => {
+  // Build our map of players, setting key/value pairs to player numbers
+  let players = new Map()
+  for (let i = 1; i <= num; i++) {
+    players.set(i, i)
+  }
+  let keyArray = [...players.keys()]
+  let deleteFirst = players.keys().length % 2 === 0 ? false : true;
+  let toDelete = false;
+  // The basic logic here is cycling through players, alternating between
+  // whether or not to remove a player
+  let helperFunction = () => {
+    players.forEach(player => {
+      if (toDelete === true) players.delete(player)
+      toDelete = !toDelete
+    })
+    deleteFirst = !deleteFirst
+    keyArray = [...players.keys()]
+  }
+
+  while (keyArray.length > 1) {
+    helperFunction()
+    console.log(keyArray)
+  }
+  return keyArray[0]
 }
 
 // eenyMeeny(5) // Should return 3
