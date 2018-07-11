@@ -7,11 +7,21 @@
 //   if (travType === 'post-order') operator(this.value)
 // }
 
-let depthFirst = (node, callback) => {
-  let currentNode = node
+let depthFirst = (callback) => {
+  if (this.left) this.left.depthFirst(callback)
+  callback(this.value)
+  if (this.right) this.right.depthFirst(callback)
+}
 
-  while (currentNode) {
-    callback(currentNode.value)
 
+// given root and num, find largest smaller than num
+
+let findLargest = (node, num, currentLargest = null) => {
+  if (node.value >= num) return currentLargest
+  else {
+    currentLargest = node.value
+    if (node.left) findLargest(node.left)
+    else return currentLargest
   }
 }
+

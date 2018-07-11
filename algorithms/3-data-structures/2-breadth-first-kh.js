@@ -12,14 +12,3 @@ let breadthFirst = (node, callback) => {
     queue.shift()
   }
 }
-
-// FROM BST WORKSHOP
-// breadthFirstForEach(operator){
-//   let queue = [this]
-//   while (queue.length) {
-//     let currentNode = queue.shift()
-//     operator(currentNode.value)
-//     if (currentNode.left) queue.push(currentNode.left)
-//     if (currentNode.right) queue.push(currentNode.right)
-//   }
-// }
