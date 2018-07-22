@@ -18,5 +18,13 @@ var findMissing = function (list) {
 }
 
 // Math Solution
+var findMissing = function (list) {
+  let difference = (list[list.length - 1] - list[0]) / list.length
+  let currElem = 1
 
+  while (list[currElem] - list[currElem - 1] === difference
+    && currElem < list.length) currElem++
+
+  return list[currElem] - difference;
+}
 
