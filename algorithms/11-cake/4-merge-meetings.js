@@ -13,3 +13,29 @@
 // [(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)]
 // your function would return:
 // [(0, 1), (3, 8), (9, 12)]
+
+const condensedTimes = (arr) => {
+  arr.sort((a, b) => {
+    if (a[0] < b[0]) return -1
+    if (a[0] > b[0]) return 1
+    return 0
+  })
+  let results = [arr[0]]
+
+  for (let i = 1; i < arr.length; i++) {
+    //check for overlap and merge if possible
+    let prev = results[results.length - 1]
+    let curr = arr[i]
+
+    if (curr[0] <= prev[1]) {
+      results.splice(results.length - 1)
+      results.push([prev[0], curr[1]])
+    } else results.push(curr)
+  }
+  return results
+}
+
+const test1 = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
+const test2 = [[0, 1], [6, 8], [1, 2], [2, 4]]
+console.log(condensedTimes(test1)) //[[0, 1], [3, 8], [9, 12]]
+console.log(condensedTimes(test2)) //[[0, 4], [6, 8]]
