@@ -32,9 +32,12 @@ const allProducts = (arr) => {
   }
 
   for (let i = arr.length - 2; i >= 0; i--) {
-    currProduct = currProduct[i + 1] * arr[i + 1]
-    finalArr[i] = currProduct * finalArr[i]
+    currProduct *= arr[i + 1]
+    finalArr[i] *= currProduct
   }
 
   return finalArr
 }
+
+console.log(allProducts([1, 3, 4, 5])) // [60, 20, 15, 12]
+console.log(allProducts([2, 3, 0, 4])) // [0, 0, 24, 0]
