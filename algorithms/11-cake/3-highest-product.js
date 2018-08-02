@@ -1,7 +1,7 @@
 // Given an array_of_ints, find the highest_product you can get from three of the integers.
 // The input array_of_ints will always have at least three integers.
 
-// Simple version
+// Simple version - O(nLogN)
 const highestProduct = (arr) => {
   arr.sort((a, b) => (a-b))
 
@@ -14,7 +14,7 @@ const highestProduct = (arr) => {
   return optionA >= optionB ? optionA : optionB
 }
 
-// Optimized version
+// Optimized version - O(n)
 const highestProduct = (arr) => {
   if (arr.length < 3) return 'array not long enough'
 

@@ -7,9 +7,17 @@
 // computes the number of ways to make amount of money with coins of the available denominations.
 
 // Example: for amount = 4(4¢) and denominations = [1, 2, 3](1¢, 2¢ and 3¢), your program
-// would output 4—the number of ways to make 4¢ with those denominations:
+// would output 4 — the number of ways to make 4¢ with those denominations:
 
 // 1. 1¢, 1¢, 1¢, 1¢
 // 2. 1¢, 1¢, 2¢
 // 3. 1¢, 3¢
 // 4. 2¢, 2¢
+
+// Brute Force
+const coinChange = (amt, denoms, count = 0) => {
+  if (amt === 0) return 1
+  else {
+
+  }
+}

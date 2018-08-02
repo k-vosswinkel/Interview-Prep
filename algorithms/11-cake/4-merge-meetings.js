@@ -28,7 +28,7 @@ const condensedTimes = (arr) => {
     let curr = arr[i]
 
     if (curr[0] <= prev[1]) {
-      results.splice(results.length - 1)
+      results.pop()
       results.push([prev[0], curr[1]])
     } else results.push(curr)
   }
