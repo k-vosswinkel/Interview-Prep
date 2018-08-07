@@ -21,8 +21,4 @@ function quickSort(arr){
 }
 
 var arr = [5,2,4,1,3,7,9,8];
-
-function quickSort(arr) {
-}
-
 quickSort(arr);
