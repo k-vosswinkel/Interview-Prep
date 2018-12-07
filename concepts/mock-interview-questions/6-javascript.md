@@ -7,15 +7,16 @@
 7. What is hoisting?
 8. What is closure?
 9. What is es6 destructuring?
-10. What is the spread operator and how is it used?
+10. What is the spread operator and how is it used? ***
   - (Followup) What is the difference between the spread operator and the REST parameter?
 11. What’s a stable sorting algorithm?
 12. What’s a hook?
 13. What is the difference between == and === and why would you use each?
-14. Why would you use a linked list over an array and vice versa?
-15. What is a hash table (how is it implemented in JavaScript and outside of JS)?
-16. What exactly happens when you look up something in a hash table?
-17. What is object serialization?
-18.
-19.
-20.
+14. Why would you use a linked list over an array and vice versa? ***
+15. What is a hash table (how is it implemented in JavaScript and outside of JS)? ***
+16. What exactly happens when you look up something in a hash table? ***
+17. What is object serialization? ***
+18. What is the difference between call, apply and bind?
+  - Call invokes the function immediately, changing the context and taking in individual arguments.
+  - Apply invokes the function immediately, changing the context and taking in an array of arguments.
+  - Bind changes the context of the function so that it can be stored in a variable for later use.

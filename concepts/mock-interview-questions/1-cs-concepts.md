@@ -28,7 +28,7 @@
   - Benefits of OOP include:
     - sadfsd
     - adsf
-  - OOP example: Users at a company, but different types of users - admin, students, etc...
+  - OOP example: React class components
   - Benefits of FP include:
   - FP Example: Redux store;
 
